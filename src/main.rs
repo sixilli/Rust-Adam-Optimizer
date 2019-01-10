@@ -1,12 +1,4 @@
 struct AdamOptimizer {
-    default: bool,
-    alpha: f64,
-    beta1: f64,
-    beta2: f64,
-    epsilon: f64,
-    epoch: i64,
-    gradient: f64,
-    theta: Vec<f64>
 }
 
 struct CheckConfig {
@@ -19,10 +11,6 @@ struct CheckConfig {
 }
 
 struct GradientDescent {
-x: Vec<f64>,
-y: Vec<f64>,
-theta_0: f64,
-theta_1: f64,
 }
 
 //impl CheckConfig {
@@ -103,9 +91,9 @@ fn main() {
     let theta = vec![0.0, 0.0];
     //let lambda_h = |theta_0, theta_1, x| theta_0+theta_1*x; Old closure
     //let weights = theta;
-    let runner = AdamOptimizer {default, alpha, beta1, beta2, epsilon, epoch, gradient: 0.0, theta: theta.clone()};
+    let runner = AdamOptimizer{};
     runner.is_default(default, alpha, beta1, beta2, epsilon, epoch);
-    let gd = GradientDescent {x: x.clone(), y: y.clone(), theta_0: theta[0].clone(), theta_1: theta[1].clone()};
+    let gd = GradientDescent{};
     let initial_cost = gd.cost_function(&x.clone(), &y.clone(), initial_theta[0], initial_theta[1]);
     let initial_cost_vector = vec![initial_cost];
     let mut history = Vec::new();
